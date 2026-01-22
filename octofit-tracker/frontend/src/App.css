@@ -1,0 +1,315 @@
+/* OctoFit Tracker - Main Styles */
+
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-attachment: fixed;
+  padding-bottom: 2rem;
+}
+
+/* Navbar Styling */
+.navbar {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  padding: 0.75rem 1rem;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff !important;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+  color: #ffd700 !important;
+}
+
+.navbar-brand img {
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover img {
+  transform: rotate(-5deg) scale(1.1);
+}
+
+.nav-link {
+  font-weight: 500;
+  transition: all 0.3s ease;
+  color: #e0e7ff !important;
+  margin: 0 0.5rem;
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
+  color: #ffd700 !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Container Styling */
+.container {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  margin-top: 2rem;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #1e3c72;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+h1 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.5rem;
+}
+
+h2 {
+  background: linear-gradient(135deg, #2a5298 0%, #667eea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2rem;
+}
+
+/* Tables */
+.table {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+}
+
+.table thead {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+}
+
+.table thead th {
+  border: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 1.25rem 1rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.table tbody tr {
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.table tbody tr:hover {
+  background: linear-gradient(90deg, #e0e7ff 0%, #f3f4f6 100%);
+  transform: scale(1.01);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.2);
+  cursor: pointer;
+}
+
+.table td {
+  padding: 1rem;
+  vertical-align: middle;
+  color: #333;
+  font-weight: 500;
+}
+
+.table td strong {
+  color: #1e3c72;
+  font-weight: 700;
+}
+
+/* Cards */
+.card {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.card-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  border: none;
+}
+
+.card-title {
+  color: #667eea;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 30px;
+  padding: 0.65rem 2rem;
+  font-weight: 600;
+  transition: all 0.4s ease;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 4px 10px rgba(102, 126, 234, 0.5);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.6);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  box-shadow: 0 4px 10px rgba(17, 153, 142, 0.5);
+  color: white;
+}
+
+.btn-success:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(17, 153, 142, 0.6);
+  background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+  box-shadow: 0 4px 10px rgba(235, 51, 73, 0.5);
+  color: white;
+}
+
+.btn-danger:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(235, 51, 73, 0.6);
+  background: linear-gradient(135deg, #f45c43 0%, #eb3349 100%);
+}
+
+.btn-info {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  box-shadow: 0 4px 10px rgba(79, 172, 254, 0.5);
+  color: white;
+}
+
+.btn-info:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(79, 172, 254, 0.6);
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+}
+
+/* Forms */
+.form-control {
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.form-label {
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+/* Links */
+a {
+  color: #667eea;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+a:hover {
+  color: #764ba2;
+  text-decoration: underline;
+  text-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+}
+
+/* Badges */
+.badge {
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.badge.bg-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+.badge.bg-success {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%) !important;
+}
+
+.badge.bg-info {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+}
+
+.badge.bg-warning {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+  color: white !important;
+}
+
+.badge.bg-danger {
+  background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%) !important;
+}
+
+/* Loading and Error States */
+.text-danger {
+  color: #f45c43 !important;
+  font-weight: 500;
+}
+
+.lead {
+  color: #666;
+  font-size: 1.25rem;
+  margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .card {
+    margin-bottom: 1rem;
+  }
+  
+  .table {
+    font-size: 0.9rem;
+  }
+}
