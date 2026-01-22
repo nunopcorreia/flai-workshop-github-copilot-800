@@ -38,28 +38,42 @@ const Workouts = () => {
 
   return (
     <div className="container mt-4">
-      <h2>Workout Suggestions</h2>
-      <div className="row">
-        {workouts.length === 0 ? (
-          <p>No workout suggestions found.</p>
-        ) : (
-          workouts.map(workout => (
-            <div key={workout.id} className="col-md-6 mb-3">
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">{workout.workout_type}</h5>
-                  <p className="card-text">
-                    {workout.description && <>{workout.description}<br /></>}
-                    <strong>Duration:</strong> {workout.duration} minutes<br />
-                    <strong>Difficulty:</strong> {workout.difficulty}<br />
-                    {workout.user_name && <><strong>For:</strong> {workout.user_name}<br /></>}
-                    <strong>Created:</strong> {new Date(workout.created_at).toLocaleDateString()}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))
-        )}
+      <h2 className="mb-4">💪 Workout Suggestions</h2>
+      <div className="table-responsive">
+        <table className="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Workout Type</th>
+              <th>Description</th>
+              <th>Duration (min)</th>
+              <th>Difficulty</th>
+              <th>For User</th>
+              <th>Created</th>
+            </tr>
+          </thead>
+          <tbody>
+            {workouts.length === 0 ? (
+              <tr>
+                <td colSpan="6" className="text-center">No workout suggestions found.</td>
+              </tr>
+            ) : (
+              workouts.map(workout => (
+                <tr key={workout.id}>
+                  <td><strong>{workout.workout_type}</strong></td>
+                  <td>{workout.description || 'N/A'}</td>
+                  <td>{workout.duration}</td>
+                  <td>
+                    <span className={`badge ${workout.difficulty === 'Easy' ? 'bg-success' : workout.difficulty === 'Medium' ? 'bg-warning' : 'bg-danger'}`}>
+                      {workout.difficulty}
+                    </span>
+                  </td>
+                  <td>{workout.user_name || 'N/A'}</td>
+                  <td>{new Date(workout.created_at).toLocaleDateString()}</td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
       </div>
     </div>
   );

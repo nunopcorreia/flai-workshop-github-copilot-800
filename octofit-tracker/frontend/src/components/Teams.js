@@ -38,26 +38,34 @@ const Teams = () => {
 
   return (
     <div className="container mt-4">
-      <h2>Teams</h2>
-      <div className="row">
-        {teams.length === 0 ? (
-          <p>No teams found.</p>
-        ) : (
-          teams.map(team => (
-            <div key={team.id} className="col-md-4 mb-3">
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">{team.name}</h5>
-                  <p className="card-text">
-                    {team.description && <><strong>Description:</strong> {team.description}<br /></>}
-                    <strong>Created:</strong> {new Date(team.created_at).toLocaleDateString()}<br />
-                    {team.member_count !== undefined && <><strong>Members:</strong> {team.member_count}</>}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))
-        )}
+      <h2 className="mb-4">Teams</h2>
+      <div className="table-responsive">
+        <table className="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Team Name</th>
+              <th>Description</th>
+              <th>Members</th>
+              <th>Created</th>
+            </tr>
+          </thead>
+          <tbody>
+            {teams.length === 0 ? (
+              <tr>
+                <td colSpan="4" className="text-center">No teams found.</td>
+              </tr>
+            ) : (
+              teams.map(team => (
+                <tr key={team.id}>
+                  <td><strong>{team.name}</strong></td>
+                  <td>{team.description || 'N/A'}</td>
+                  <td><span className="badge bg-info">{team.member_count || 0}</span></td>
+                  <td>{new Date(team.created_at).toLocaleDateString()}</td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
       </div>
     </div>
   );

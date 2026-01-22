@@ -38,27 +38,36 @@ const Users = () => {
 
   return (
     <div className="container mt-4">
-      <h2>Users</h2>
-      <div className="row">
-        {users.length === 0 ? (
-          <p>No users found.</p>
-        ) : (
-          users.map(user => (
-            <div key={user.id} className="col-md-6 mb-3">
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">{user.name}</h5>
-                  <p className="card-text">
-                    <strong>Email:</strong> {user.email}<br />
-                    {user.team_name && <><strong>Team:</strong> {user.team_name}<br /></>}
-                    {user.total_points !== undefined && <><strong>Points:</strong> {user.total_points}<br /></>}
-                    <strong>Joined:</strong> {new Date(user.created_at).toLocaleDateString()}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))
-        )}
+      <h2 className="mb-4">Users</h2>
+      <div className="table-responsive">
+        <table className="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Team</th>
+              <th>Points</th>
+              <th>Joined</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.length === 0 ? (
+              <tr>
+                <td colSpan="5" className="text-center">No users found.</td>
+              </tr>
+            ) : (
+              users.map(user => (
+                <tr key={user.id}>
+                  <td><strong>{user.name}</strong></td>
+                  <td>{user.email}</td>
+                  <td>{user.team_name || 'No team'}</td>
+                  <td><span className="badge bg-success">{user.total_points || 0}</span></td>
+                  <td>{new Date(user.created_at).toLocaleDateString()}</td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
       </div>
     </div>
   );

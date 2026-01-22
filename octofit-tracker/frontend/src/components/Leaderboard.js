@@ -38,35 +38,44 @@ const Leaderboard = () => {
 
   return (
     <div className="container mt-4">
-      <h2>Leaderboard</h2>
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>User</th>
-            <th>Total Points</th>
-            <th>Total Activities</th>
-            <th>Total Calories</th>
-          </tr>
-        </thead>
-        <tbody>
-          {leaderboard.length === 0 ? (
+      <h2 className="mb-4">🏆 Leaderboard</h2>
+      <div className="table-responsive">
+        <table className="table table-striped table-hover">
+          <thead>
             <tr>
-              <td colSpan="5">No leaderboard data found.</td>
+              <th>Rank</th>
+              <th>User</th>
+              <th>Total Points</th>
+              <th>Total Activities</th>
+              <th>Total Calories</th>
             </tr>
-          ) : (
-            leaderboard.map((entry, index) => (
-              <tr key={entry.user_id || index}>
-                <td>{index + 1}</td>
-                <td>{entry.user_name}</td>
-                <td>{entry.total_points}</td>
-                <td>{entry.total_activities}</td>
-                <td>{entry.total_calories}</td>
+          </thead>
+          <tbody>
+            {leaderboard.length === 0 ? (
+              <tr>
+                <td colSpan="5" className="text-center">No leaderboard data found.</td>
               </tr>
-            ))
-          )}
-        </tbody>
-      </table>
+            ) : (
+              leaderboard.map((entry, index) => (
+                <tr key={entry.user_id || index}>
+                  <td>
+                    <strong>
+                      {index === 0 && '🥇 '}
+                      {index === 1 && '🥈 '}
+                      {index === 2 && '🥉 '}
+                      {index + 1}
+                    </strong>
+                  </td>
+                  <td><strong>{entry.user_name}</strong></td>
+                  <td><span className="badge bg-primary">{entry.total_points}</span></td>
+                  <td>{entry.total_activities}</td>
+                  <td>{entry.total_calories}</td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

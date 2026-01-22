@@ -38,28 +38,38 @@ const Activities = () => {
 
   return (
     <div className="container mt-4">
-      <h2>Activities</h2>
-      <div className="row">
-        {activities.length === 0 ? (
-          <p>No activities found.</p>
-        ) : (
-          activities.map(activity => (
-            <div key={activity.id} className="col-md-6 mb-3">
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">{activity.activity_type}</h5>
-                  <p className="card-text">
-                    <strong>Duration:</strong> {activity.duration} minutes<br />
-                    <strong>Distance:</strong> {activity.distance || 'N/A'} km<br />
-                    <strong>Calories:</strong> {activity.calories_burned}<br />
-                    <strong>Date:</strong> {new Date(activity.date).toLocaleDateString()}<br />
-                    {activity.user_name && <><strong>User:</strong> {activity.user_name}</>}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))
-        )}
+      <h2 className="mb-4">Activities</h2>
+      <div className="table-responsive">
+        <table className="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Activity Type</th>
+              <th>User</th>
+              <th>Duration (min)</th>
+              <th>Distance (km)</th>
+              <th>Calories</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {activities.length === 0 ? (
+              <tr>
+                <td colSpan="6" className="text-center">No activities found.</td>
+              </tr>
+            ) : (
+              activities.map(activity => (
+                <tr key={activity.id}>
+                  <td><strong>{activity.activity_type}</strong></td>
+                  <td>{activity.user_name || 'N/A'}</td>
+                  <td>{activity.duration}</td>
+                  <td>{activity.distance || 'N/A'}</td>
+                  <td>{activity.calories_burned}</td>
+                  <td>{new Date(activity.date).toLocaleDateString()}</td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
       </div>
     </div>
   );
