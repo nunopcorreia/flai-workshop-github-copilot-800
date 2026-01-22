@@ -44,6 +44,7 @@ const Users = () => {
           <thead>
             <tr>
               <th>Name</th>
+              <th>Username</th>
               <th>Email</th>
               <th>Team</th>
               <th>Points</th>
@@ -53,16 +54,17 @@ const Users = () => {
           <tbody>
             {users.length === 0 ? (
               <tr>
-                <td colSpan="5" className="text-center">No users found.</td>
+                <td colSpan="6" className="text-center">No users found.</td>
               </tr>
             ) : (
               users.map(user => (
                 <tr key={user.id}>
-                  <td><strong>{user.name}</strong></td>
-                  <td>{user.email}</td>
+                  <td><strong>{user.name || 'N/A'}</strong></td>
+                  <td>{user.email ? user.email.split('@')[0] : 'N/A'}</td>
+                  <td>{user.email || 'N/A'}</td>
                   <td>{user.team_name || 'No team'}</td>
                   <td><span className="badge bg-success">{user.total_points || 0}</span></td>
-                  <td>{new Date(user.created_at).toLocaleDateString()}</td>
+                  <td>{user.created_at ? new Date(user.created_at).toLocaleDateString() : 'N/A'}</td>
                 </tr>
               ))
             )}

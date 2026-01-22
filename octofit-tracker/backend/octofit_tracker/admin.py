@@ -44,14 +44,14 @@ class TeamAdmin(admin.ModelAdmin):
 @admin.register(Activity)
 class ActivityAdmin(admin.ModelAdmin):
     """Admin interface for Activity model"""
-    list_display = ('activity_type', 'user_id', 'duration', 'calories', 'date')
+    list_display = ('activity_type', 'user_id', 'duration', 'distance', 'calories', 'date')
     list_filter = ('activity_type', 'date')
     search_fields = ('activity_type', 'user_id', 'notes')
     date_hierarchy = 'date'
     
     fieldsets = (
         ('Activity Details', {
-            'fields': ('user_id', 'activity_type', 'duration', 'calories', 'date')
+            'fields': ('user_id', 'activity_type', 'duration', 'distance', 'calories', 'date')
         }),
         ('Additional Information', {
             'fields': ('notes',)
@@ -62,15 +62,15 @@ class ActivityAdmin(admin.ModelAdmin):
 @admin.register(Leaderboard)
 class LeaderboardAdmin(admin.ModelAdmin):
     """Admin interface for Leaderboard model"""
-    list_display = ('team_id', 'rank', 'total_calories', 'total_activities', 'updated_at')
+    list_display = ('user_id', 'rank', 'total_calories', 'total_activities', 'updated_at')
     list_filter = ('rank', 'updated_at')
-    search_fields = ('team_id',)
+    search_fields = ('user_id',)
     readonly_fields = ('updated_at',)
     ordering = ('rank',)
     
     fieldsets = (
-        ('Team Information', {
-            'fields': ('team_id',)
+        ('User Information', {
+            'fields': ('user_id',)
         }),
         ('Statistics', {
             'fields': ('total_calories', 'total_activities', 'rank')

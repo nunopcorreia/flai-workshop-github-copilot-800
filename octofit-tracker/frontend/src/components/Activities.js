@@ -60,10 +60,10 @@ const Activities = () => {
               activities.map(activity => (
                 <tr key={activity.id}>
                   <td><strong>{activity.activity_type}</strong></td>
-                  <td>{activity.user_name || 'N/A'}</td>
+                  <td>{activity.user_name || 'Unknown User'}</td>
                   <td>{activity.duration}</td>
-                  <td>{activity.distance || 'N/A'}</td>
-                  <td>{activity.calories_burned}</td>
+                  <td>{activity.distance ? activity.distance.toFixed(1) : '-'}</td>
+                  <td><span className="badge bg-warning text-dark">{activity.calories}</span></td>
                   <td>{new Date(activity.date).toLocaleDateString()}</td>
                 </tr>
               ))

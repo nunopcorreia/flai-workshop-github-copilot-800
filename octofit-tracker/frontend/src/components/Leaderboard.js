@@ -45,15 +45,14 @@ const Leaderboard = () => {
             <tr>
               <th>Rank</th>
               <th>User</th>
-              <th>Total Points</th>
-              <th>Total Activities</th>
               <th>Total Calories</th>
+              <th>Total Activities</th>
             </tr>
           </thead>
           <tbody>
             {leaderboard.length === 0 ? (
               <tr>
-                <td colSpan="5" className="text-center">No leaderboard data found.</td>
+                <td colSpan="4" className="text-center">No leaderboard data found.</td>
               </tr>
             ) : (
               leaderboard.map((entry, index) => (
@@ -63,13 +62,12 @@ const Leaderboard = () => {
                       {index === 0 && '🥇 '}
                       {index === 1 && '🥈 '}
                       {index === 2 && '🥉 '}
-                      {index + 1}
+                      {entry.rank || index + 1}
                     </strong>
                   </td>
-                  <td><strong>{entry.user_name}</strong></td>
-                  <td><span className="badge bg-primary">{entry.total_points}</span></td>
-                  <td>{entry.total_activities}</td>
-                  <td>{entry.total_calories}</td>
+                  <td><strong>{entry.user_name || 'Unknown User'}</strong></td>
+                  <td><span className="badge bg-danger">{entry.total_calories || 0}</span></td>
+                  <td><span className="badge bg-primary">{entry.total_activities || 0}</span></td>
                 </tr>
               ))
             )}
