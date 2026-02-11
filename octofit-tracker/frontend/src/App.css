@@ -1,0 +1,177 @@
+/* OctoFit Tracker - Sporting CP Theme */
+
+/* Sporting CP Color Palette */
+:root {
+  --sporting-green: #008037;
+  --sporting-dark-green: #005a27;
+  --sporting-light-green: #00a651;
+  --sporting-gold: #FFD700;
+  --sporting-white: #FFFFFF;
+  --sporting-gray: #f8f9fa;
+  --sporting-dark: #1a1a1a;
+}
+
+/* Main App Container */
+.App {
+  min-height: 100vh;
+  background-color: var(--sporting-gray);
+}
+
+/* Navbar Customization - Sporting Green */
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--sporting-white) !important;
+}
+
+.navbar {
+  background: linear-gradient(135deg, var(--sporting-green) 0%, var(--sporting-dark-green) 100%) !important;
+  box-shadow: 0 4px 6px rgba(0, 128, 55, 0.3);
+}
+
+.navbar .nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: var(--sporting-gold) !important;
+  transform: translateY(-2px);
+}
+
+/* Page Headers */
+.page-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid var(--sporting-green);
+}
+
+.page-header h1 {
+  color: var(--sporting-dark-green);
+}
+
+/* Table Enhancements */
+.table-responsive {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 128, 55, 0.1);
+  padding: 1rem;
+  border-top: 4px solid var(--sporting-green);
+}
+
+.table thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--sporting-green) !important;
+}
+
+.table thead th {
+  color: white !important;
+  border-color: var(--sporting-dark-green) !important;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 128, 55, 0.03);
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 128, 55, 0.08);
+}
+
+/* Badge Styling - Sporting Colors */
+.badge {
+  font-weight: 500;
+  padding: 0.35em 0.65em;
+}
+
+.badge.bg-primary {
+  background-color: var(--sporting-green) !important;
+}
+
+/* Card Enhancements */
+.card {
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 128, 55, 0.15);
+  transition: all 0.3s ease;
+  border-top: 3px solid var(--sporting-green);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 128, 55, 0.25);
+}
+
+.card.border-primary {
+  border-top-color: var(--sporting-green) !important;
+}
+
+.card .text-primary,
+.card .bi.text-primary {
+  color: var(--sporting-green) !important;
+}
+
+/* Loading Spinner */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.spinner-border.text-primary {
+  color: var(--sporting-green) !important;
+}
+
+/* Jumbotron - Sporting CP Gradient */
+.jumbotron {
+  background: linear-gradient(135deg, var(--sporting-green) 0%, var(--sporting-dark-green) 100%);
+  color: white;
+  box-shadow: 0 8px 20px rgba(0, 128, 55, 0.3);
+  border-radius: 0.75rem;
+}
+
+.jumbotron hr {
+  border-color: rgba(255, 215, 0, 0.4) !important;
+}
+
+.jumbotron .btn {
+  margin: 0.25rem;
+  border: 2px solid white;
+  font-weight: 600;
+}
+
+/* Button Overrides - Sporting Colors */
+.btn-primary {
+  background-color: var(--sporting-green);
+  border-color: var(--sporting-green);
+}
+
+.btn-primary:hover {
+  background-color: var(--sporting-dark-green);
+  border-color: var(--sporting-dark-green);
+}
+
+.btn-success {
+  background-color: var(--sporting-light-green);
+  border-color: var(--sporting-light-green);
+}
+
+/* Alert Overrides */
+.alert-danger {
+  background-color: #fff3f3;
+  border-left: 4px solid #dc3545;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .table-responsive {
+    font-size: 0.875rem;
+  }
+  
+  .jumbotron .btn {
+    display: block;
+    margin: 0.5rem 0;
+  }
+}
