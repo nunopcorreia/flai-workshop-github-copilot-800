@@ -7,10 +7,10 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['id', 'name', 'email', 'team', 'created_at']
+        fields = ['id', 'username', 'name', 'first_name', 'last_name', 'email', 'team', 'created_at']
 
     def get_id(self, obj):
-        return str(obj.pk)
+        return str(obj._id) if hasattr(obj, '_id') else str(obj.pk) if obj.pk else None
 
 
 class TeamSerializer(serializers.ModelSerializer):
@@ -21,29 +21,53 @@ class TeamSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'description', 'created_at']
 
     def get_id(self, obj):
-        return str(obj.pk)
+        return str(obj._id) if hasattr(obj, '_id') else str(obj.pk) if obj.pk else None
 
 
 class ActivitySerializer(serializers.ModelSerializer):
     id = serializers.SerializerMethodField()
+    user = serializers.SerializerMethodField()
 
     class Meta:
         model = Activity
-        fields = ['id', 'user_email', 'activity_type', 'duration', 'calories_burned', 'date', 'created_at']
+        fields = ['id', 'user', 'user_email', 'activity_type', 'duration', 'distance', 'calories_burned', 'date', 'created_at']
 
     def get_id(self, obj):
-        return str(obj.pk)
+        return str(obj._id) if hasattr(obj, '_id') else str(obj.pk) if obj.pk else None
+    
+    def get_user(self, obj):
+        try:
+            user = User.objects.get(email=obj.user_email)
+            return user.name
+        except User.DoesNotExist:
+            return obj.user_email
 
 
 class LeaderboardSerializer(serializers.ModelSerializer):
     id = serializers.SerializerMethodField()
+    user = serializers.SerializerMethodField()
+    team = serializers.SerializerMethodField()
 
     class Meta:
         model = Leaderboard
-        fields = ['id', 'user_email', 'total_calories', 'total_activities', 'rank', 'updated_at']
+        fields = ['id', 'user', 'user_email', 'team', 'total_points', 'total_calories', 'total_activities', 'rank', 'updated_at']
 
     def get_id(self, obj):
-        return str(obj.pk)
+        return str(obj._id) if hasattr(obj, '_id') else str(obj.pk) if obj.pk else None
+    
+    def get_user(self, obj):
+        try:
+            user = User.objects.get(email=obj.user_email)
+            return user.name
+        except User.DoesNotExist:
+            return obj.user_email
+    
+    def get_team(self, obj):
+        try:
+            user = User.objects.get(email=obj.user_email)
+            return user.team if user.team else 'No Team'
+        except User.DoesNotExist:
+            return 'No Team'
 
 
 class WorkoutSerializer(serializers.ModelSerializer):
@@ -54,4 +78,4 @@ class WorkoutSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'description', 'difficulty', 'duration', 'calories_estimate', 'created_at']
 
     def get_id(self, obj):
-        return str(obj.pk)
+        return str(obj._id) if hasattr(obj, '_id') else str(obj.pk) if obj.pk else None
